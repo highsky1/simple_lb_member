@@ -16,7 +16,12 @@ docker network create \
 front-net
 ```
 
-## 컨테이너 생성
+## LB 컨테이너 생성
+```bash
+docker run -d --net front-net --ip 192.168.24.2 -p 80:80 --name=front-lb nginx:1.27.2-alpine
+```
+
+## 멤버 컨테이너 생성
 
 ```bash
 docker run -d --net front-net --ip 192.168.24.11 -p 6001:6001 -e PORT=6001 -h alb-node01 --name=alb-node01 highsky1/lb-member:1.1
