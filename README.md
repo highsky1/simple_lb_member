@@ -21,6 +21,12 @@ front-net
 docker run -d --net front-net --ip 192.168.24.2 -p 80:80 --name=front-lb nginx:1.27.2-alpine
 ```
 
+## nginx.conf 복사
+```
+docker cp nginx.conf front-lb:/etc/nginx/
+docker restart front-lb
+```
+
 ## 멤버 컨테이너 생성
 
 ```bash
